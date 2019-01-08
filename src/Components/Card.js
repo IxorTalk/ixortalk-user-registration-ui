@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { width, space } from 'styled-system'
 
 const Card = styled('div')(
-  { borderRadius: 4 },
+  { borderRadius: 8 },
   ({ theme }) => ({ background: theme.colors.card }),
   width,
   space,

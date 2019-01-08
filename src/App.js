@@ -12,7 +12,7 @@ const App = () => (
     <Router id="router">
       <Redirect noThrow from="/" to="/register" />
       <Register path="register" />
-      <ResetPassword path="reset" />
+      <ResetPassword path="reset-password" />
     </Router>
   </ThemeProvider>
 )

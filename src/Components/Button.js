@@ -9,7 +9,7 @@ import { FocusOutline } from './Input'
 const Button = styled(Text.withComponent('button'))(
   {
     height: 48,
-    borderRadius: 24,
+    borderRadius: 4,
     border: 'none',
     padding: '0 24px',
     fontWeight: 'bold',
@@ -22,7 +22,9 @@ const Button = styled(Text.withComponent('button'))(
       color: textColor = props.theme.colors.buttonText,
     } = color(props)
     return {
-      backgroundColor,
+      backgroundColor: props.disabled
+        ? props.theme.colors.disabled
+        : backgroundColor,
       color: textColor,
       '&:hover': { backgroundColor: tint(0.3, backgroundColor) },
       '&:active': { backgroundColor: shade(0.3, backgroundColor) },
@@ -31,7 +33,7 @@ const Button = styled(Text.withComponent('button'))(
 )
 
 const ButtonWithOutline = (props: { onClick?: () => any }) => (
-  <FocusOutline inline borderRadius={24}>
+  <FocusOutline inline borderRadius={4}>
     <Button {...props} />
   </FocusOutline>
 )
