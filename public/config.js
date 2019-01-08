@@ -1,7 +1,8 @@
 window.config = {
   theme: {
     colors: {
-      background: 'pink',
+      background: 'linear-gradient(#4B5463,#373E49)',
+      title: 'white',
       card: '#F7F9FC',
       button: '#275DAD',
       disabled: '#CED3DC',
@@ -15,4 +16,5 @@ window.config = {
     },
   },
   platformName: 'Test Platform',
+  platformLogo: 'https://avatars3.githubusercontent.com/u/21692504?s=200&v=4',
 }

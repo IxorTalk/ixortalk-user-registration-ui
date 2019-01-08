@@ -17,5 +17,10 @@ const Heading = styled(Text.withComponent('h2'))(({ theme }) => ({
   fontSize: 24,
   fontWeight: 'bold',
 }))
+const Title = styled(Text.withComponent('h1'))({
+  fontSize: 28,
+  fontWeight: 'bold',
+  textAlign: 'center',
+})
 
-export { Text, Heading }
+export { Text, Heading, Title }

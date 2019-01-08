@@ -12,6 +12,7 @@ import {
   Button,
   TextInput,
   Text,
+  Logo,
   DisplayError,
 } from '../Components'
 
@@ -42,11 +43,10 @@ type Props = { location?: { search: string } }
 const ResetPassword = ({ location = { search: '' } }: Props) => {
   return (
     <Background>
-      <Absolute
-        top="50%"
-        left={0}
-        right={0}
-        style={{ transform: 'translateY(-50%)' }}>
+      <View py={4}>
+        <Logo />
+      </View>
+      <View py={4}>
         <Card mx="auto" width={512} py={3} px={4}>
           <View my={3} ml={3}>
             <Heading>Reset Password</Heading>
@@ -105,7 +105,7 @@ const ResetPassword = ({ location = { search: '' } }: Props) => {
             }}
           </Formik>
         </Card>
-      </Absolute>
+      </View>
     </Background>
   )
 }
