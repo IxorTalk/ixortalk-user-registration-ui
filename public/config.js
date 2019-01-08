@@ -15,6 +15,6 @@ window.config = {
       success: '#1F9936',
     },
   },
-  platformName: 'Test Platform',
+  platformName: 'IxorTalk',
   platformLogo: 'https://avatars3.githubusercontent.com/u/21692504?s=200&v=4',
 }
