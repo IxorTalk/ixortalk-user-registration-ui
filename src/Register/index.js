@@ -35,7 +35,6 @@ const registerUser = async (values: FormValues, form) => {
   })
   form.setStatus(status)
   form.setSubmitting(false)
-  console.log(ok, status)
 }
 
 type Props = {}
@@ -68,13 +67,13 @@ const Register = (props: Props) => {
               langKey: Yup.string().required(),
             })}
             onSubmit={registerUser}>
-            {({ handleChange, handleBlur, values, isSubmitting, status }) => {
+            {({ isValid, values, isSubmitting, status }) => {
               return status && status >= 200 && status < 300 ? (
                 <View>
                   <View my={3}>
                     <TextInput
                       name="username"
-                      type="text"
+                      type="email-address"
                       label="E-mail address"
                       value={values.username}
                       onChange={() => {}}
@@ -83,7 +82,7 @@ const Register = (props: Props) => {
                       width={1}
                     />
                   </View>
-                  <View my={3} mx={24}>
+                  <View my={3} mx={3}>
                     <Text>
                       You will receive an e-mail with an activation link
                       shortly!
@@ -124,7 +123,7 @@ const Register = (props: Props) => {
                     />
                   </View>
                   <View my={3}>
-                    <Button type="submit" disabled={isSubmitting}>
+                    <Button type="submit" disabled={isSubmitting || !isValid}>
                       Submit
                     </Button>
                   </View>

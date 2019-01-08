@@ -11,6 +11,7 @@
     "get-user-locale": "^1.1.1",
     "jest": "^23.6.0",
     "polished": "^2.3.1",
+    "query-string": "^6.2.0",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-scripts": "2.1.1",

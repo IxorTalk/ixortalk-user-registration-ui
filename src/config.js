@@ -1,7 +1,7 @@
 const config = {
   theme: {
     colors: {
-      background: '#373E49',
+      background: 'linear-gradient(#4B5463,#373E49)',
       card: '#F7F9FC',
       button: '#275DAD',
       disabled: '#CED3DC',
