@@ -1,7 +1,7 @@
-const config = window.config || {
+window.config = {
   theme: {
     colors: {
-      background: 'linear-gradient(#4B5463,#373E49)',
+      background: 'pink',
       card: '#F7F9FC',
       button: '#275DAD',
       disabled: '#CED3DC',
@@ -16,5 +16,3 @@ const config = window.config || {
   },
   platformName: 'Test Platform',
 }
-
-export default config
