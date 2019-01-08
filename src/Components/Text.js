@@ -1,6 +1,5 @@
 // @flow
 import styled from '@emotion/styled'
-import { colo } from 'styled-system'
 
 const Text = styled('p')(
   {

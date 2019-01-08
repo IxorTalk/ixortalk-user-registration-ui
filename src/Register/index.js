@@ -1,13 +1,11 @@
 // @flow
 import * as React from 'react'
 import * as Yup from 'yup'
-import { withFormik, Formik, Field, Form } from 'formik'
-import { navigate } from '@reach/router'
+import { Formik, Field, Form } from 'formik'
 import getLocale from 'get-user-locale'
 import {
   Background,
   TextInput,
-  withField,
   Card,
   Absolute,
   View,
@@ -16,7 +14,6 @@ import {
   Text,
   DisplayError,
 } from '../Components'
-import type { FormikProps } from 'formik'
 
 type FormValues = {
   username: string,
@@ -28,7 +25,7 @@ type FormValues = {
 const registerUser = async (values: FormValues, form) => {
   form.setStatus(null)
   console.log(values)
-  const { ok, status } = await fetch('/user-registration/', {
+  const { status } = await fetch('/user-registration/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(values),

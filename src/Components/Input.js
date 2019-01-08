@@ -1,12 +1,11 @@
 // @flow
 import * as React from 'react'
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { width } from 'styled-system'
 import { shade, tint } from 'polished'
 import { View } from './Container'
 import { Text } from './Text'
-import type { FieldProps, FormikProps } from 'formik'
+import type { FieldProps } from 'formik'
 
 const Outline = styled('div')(
   {
