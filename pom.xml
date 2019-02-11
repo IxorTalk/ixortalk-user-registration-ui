@@ -246,6 +246,7 @@
                     <excludes>
                         <exclude>node/**</exclude>
                         <exclude>node_modules/**</exclude>
+                        <exclude>build/**</exclude>
                     </excludes>
                 </configuration>
                 <executions>
