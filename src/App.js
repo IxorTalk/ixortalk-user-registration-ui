@@ -31,7 +31,7 @@ import { Register } from './Register'
 import { ResetPassword } from './ResetPassword'
 import { isDev } from './utils'
 
-const basepath = isDev() ? '/user-registration-ui' : ''
+const basepath = isDev() ? '' : '/user-registration-ui'
 const App = () => (
   <ThemeProvider theme={config.theme}>
     <Router id="router" basepath={basepath}>
