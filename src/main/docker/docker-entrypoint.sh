@@ -32,7 +32,7 @@ IXORTALK_CONFIG_SERVER_URL=${IXORTALK_CONFIG_SERVER_URL:="http://ixortalk-config
 
 rm -rf /etc/nginx/conf.d/default.conf
 
-CONFIG_URL=${IXORTALK_CONFIG_SERVER_URL}/ixortalk-user-registration-ui/${IXORTALK_PROFILE}/${IXORTALK_CONFIG_SERVER_LABEL}/ixortalk-user-registration-ui.conf
+CONFIG_URL=${IXORTALK_CONFIG_SERVER_URL}/ixortalk.user.registration.ui/${IXORTALK_PROFILE}/${IXORTALK_CONFIG_SERVER_LABEL}/ixortalk-user-registration-ui.conf
 echo "Fetching configuration from $CONFIG_URL"
 
 wget $CONFIG_URL -O /etc/nginx/conf.d/ixortalk-user-registration-ui.conf

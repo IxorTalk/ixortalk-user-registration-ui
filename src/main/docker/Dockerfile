@@ -29,7 +29,7 @@ ADD healthcheck.sh /
 
 COPY build /usr/share/nginx/html/
 
-EXPOSE 7003
+EXPOSE 7005
 
 HEALTHCHECK CMD /healthcheck.sh
 

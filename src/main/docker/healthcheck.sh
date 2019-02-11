@@ -26,6 +26,6 @@
 
 SERVER_CONTEXT_PATH=${SERVER_CONTEXT_PATH:="/user-registration-ui"}
 HEALTH_PATH=${HEALTH_PATH:="/health"}
-PORT=${PORT:="7003"}
+PORT=${PORT:="7005"}
 
 wget -q http://localhost:${PORT}${SERVER_CONTEXT_PATH}${HEALTH_PATH} -O /dev/null
