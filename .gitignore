@@ -5,6 +5,8 @@
 /node
 /.pnp
 .pnp.js
+/node
+/target
 
 # testing
 /coverage
