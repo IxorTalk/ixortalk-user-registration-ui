@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "test:ci": "CI=true react-scripts test --env=jsdom --transformIgnorePatterns \"node_modules/(?!(apptoms-core))/\""
   },
   "eslintConfig": {
     "extends": "react-app",
