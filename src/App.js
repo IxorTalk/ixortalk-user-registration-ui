@@ -9,7 +9,7 @@ import { ResetPassword } from './ResetPassword'
 
 const App = () => (
   <ThemeProvider theme={config.theme}>
-    <Router id="router">
+    <Router id="router" basepath="/user-registration-ui">
       <Redirect noThrow from="/" to="/register" />
       <Register path="register" />
       <ResetPassword path="reset-password" />
