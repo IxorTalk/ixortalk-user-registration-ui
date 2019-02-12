@@ -24,17 +24,33 @@
 #
 
 
+# Exit on non-zero return value
 set -e
 
+# Init
 IXORTALK_PROFILE=${IXORTALK_PROFILE:="dev"}
 IXORTALK_CONFIG_SERVER_LABEL=${IXORTALK_CONFIG_SERVER_LABEL:="master"}
 IXORTALK_CONFIG_SERVER_URL=${IXORTALK_CONFIG_SERVER_URL:="http://ixortalk-config-server:8899/config"}
 
+
+# Get nginx config
+
 rm -rf /etc/nginx/conf.d/default.conf
 
-CONFIG_URL=${IXORTALK_CONFIG_SERVER_URL}/ixortalk.user.registration.ui/${IXORTALK_PROFILE}/${IXORTALK_CONFIG_SERVER_LABEL}/ixortalk-user-registration-ui.conf
-echo "Fetching configuration from $CONFIG_URL"
+NGINX_CONF_URL=${IXORTALK_CONFIG_SERVER_URL}/ixortalk.user.registration.ui/${IXORTALK_PROFILE}/${IXORTALK_CONFIG_SERVER_LABEL}/ixortalk-user-registration-ui.conf
+echo "Fetching nginx conf from $NGINX_CONF_URL"
 
-wget $CONFIG_URL -O /etc/nginx/conf.d/ixortalk-user-registration-ui.conf
+wget $NGINX_CONF_URL -O /etc/nginx/conf.d/ixortalk-user-registration-ui.conf
+
+# Get config.js
+
+CONFIG_JS_URL=${IXORTALK_CONFIG_SERVER_URL}/ixortalk.user.registration.ui/${IXORTALK_PROFILE}/${IXORTALK_CONFIG_SERVER_LABEL}/config.js
+echo "Fetching config.js from $CONFIG_JS_URL"
+
+set +e
+wget $CONFIG_JS_URL -O /usr/share/nginx/html/config.js
+set -e
+
+# Start nginx
 
 nginx -g 'daemon off;'
