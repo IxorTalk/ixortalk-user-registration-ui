@@ -72,7 +72,7 @@ const ResetPassword = ({ location = { search: '' } }: Props) => {
       <View py={4}>
         <Card mx="auto" width={512} py={3} px={4}>
           <View my={3} ml={3}>
-            <Heading>Reset Password</Heading>
+            <Heading>Set Password</Heading>
           </View>
           <Formik
             initialValues={{
