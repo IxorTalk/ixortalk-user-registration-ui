@@ -28,7 +28,6 @@ import * as Yup from 'yup'
 import { parse } from 'query-string'
 import {
   Background,
-  Absolute,
   Card,
   View,
   Heading,

@@ -30,7 +30,6 @@ import {
   Background,
   TextInput,
   Card,
-  Absolute,
   View,
   Heading,
   Button,
