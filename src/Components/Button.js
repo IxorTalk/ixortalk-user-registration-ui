@@ -49,8 +49,13 @@ const Button = styled(Text.withComponent('button'))(
         ? props.theme.colors.disabled
         : backgroundColor,
       color: textColor,
-      '&:hover': { backgroundColor: tint(0.3, backgroundColor) },
-      '&:active': { backgroundColor: shade(0.3, backgroundColor) },
+      cursor: props.notInteractive || 'pointer',
+      '&:hover': props.notInteractive || {
+        backgroundColor: tint(0.3, backgroundColor),
+      },
+      '&:active': props.notInteractive || {
+        backgroundColor: shade(0.3, backgroundColor),
+      },
     }
   },
 )
@@ -61,4 +66,4 @@ const ButtonWithOutline = (props: { onClick?: () => any }) => (
   </FocusOutline>
 )
 
-export { ButtonWithOutline as Button }
+export { ButtonWithOutline as Button, Button as BaseButton }

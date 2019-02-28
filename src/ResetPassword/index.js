@@ -28,7 +28,6 @@ import * as Yup from 'yup'
 import { parse } from 'query-string'
 import {
   Background,
-  Absolute,
   Card,
   View,
   Heading,
@@ -37,6 +36,7 @@ import {
   Text,
   Logo,
   DisplayError,
+  BaseButton,
 } from '../Components'
 
 type FormValues = {
@@ -94,7 +94,9 @@ const ResetPassword = ({ location = { search: '' } }: Props) => {
                     <Text>Your password has been set successfully!</Text>
                   </View>
                   <View my={3}>
-                    <Button bg="success">Success!</Button>
+                    <BaseButton notInteractive bg="success">
+                      Success!
+                    </BaseButton>
                   </View>
                 </View>
               ) : (

@@ -30,13 +30,13 @@ import {
   Background,
   TextInput,
   Card,
-  Absolute,
   View,
   Heading,
   Button,
   Text,
   DisplayError,
   Logo,
+  BaseButton,
 } from '../Components'
 
 type FormValues = {
@@ -109,7 +109,12 @@ const Register = (props: Props) => {
                     </Text>
                   </View>
                   <View my={3}>
-                    <Button bg="success">Success!</Button>
+                    <BaseButton
+                      notInteractive
+                      bg="success"
+                      justifyContent="center">
+                      Success!
+                    </BaseButton>
                   </View>
                 </View>
               ) : (
