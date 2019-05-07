@@ -12,12 +12,13 @@
     "get-user-locale": "^1.1.1",
     "jest": "^23.6.0",
     "polished": "^2.3.1",
-    "query-string": "^6.2.0",
+    "query-string": "^6.5.0",
+    "ramda": "^0.26.1",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-scripts": "2.1.1",
     "recompose": "^0.30.0",
-    "styled-system": "^3.2.0",
+    "styled-system": "^4.2.1",
     "yup": "^0.26.6"
   },
   "scripts": {
@@ -41,6 +42,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "flow-bin": "0.84"
+    "flow-bin": "^0.98.1"
   }
 }

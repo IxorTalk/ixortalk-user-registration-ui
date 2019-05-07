@@ -23,13 +23,14 @@
  */
 // @flow
 import styled from '@emotion/styled'
+import { Flex } from './Container'
 
-const Background = styled('div')(
+const Background = styled(Flex)(
   {
     height: '100%',
   },
   ({ theme }) => ({
-    background: theme.colors.background,
+    background: theme.colors.lights[2],
   }),
 )
 
