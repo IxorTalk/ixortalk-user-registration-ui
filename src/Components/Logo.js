@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { View } from './Container'
+import { Flex } from './Container'
 import { Title } from './Text'
 import config from '../config'
 
@@ -17,12 +17,12 @@ const LogoImage = styled('div')({
 
 const Logo = () => {
   return (
-    <View>
+    <Flex>
       {config.platformLogo && <LogoImage />}
       {config.platformName && (
         <Title color="title">{config.platformName}</Title>
       )}
-    </View>
+    </Flex>
   )
 }
 

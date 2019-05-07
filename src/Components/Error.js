@@ -1,13 +1,7 @@
 // @flow
 import * as React from 'react'
-import styled from '@emotion/styled'
-import { color, space } from 'styled-system'
+import { Card } from './Container'
 import { Text } from './Text'
-
-const ErrorContainer = styled(Text)(space, color, {
-  borderRadius: 24,
-  minHeight: 48,
-})
 
 const messages = {
   '400': 'Please check whether your information is correct.',
@@ -20,11 +14,13 @@ type Props = {
 const DisplayError = (props: Props) => {
   if (!props.children) return null
   return (
-    <ErrorContainer py={14} px={24} bg="error" color="white">
-      {typeof props.children === 'number'
-        ? messages[`${props.children}`]
-        : props.children}
-    </ErrorContainer>
+    <Card width={1} py={14} px={24} bg="reds.1" color="white">
+      <Text color="darks.0">
+        {typeof props.children === 'number'
+          ? messages[`${props.children}`]
+          : props.children}
+      </Text>
+    </Card>
   )
 }
 

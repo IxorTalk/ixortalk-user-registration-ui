@@ -1,41 +1,168 @@
 // @flow
-import * as React from 'react'
 import styled from '@emotion/styled'
-import { color } from 'styled-system'
-import { tint, shade } from 'polished'
-import { Text } from './Text'
-import { FocusOutline } from './Input'
+import { path } from 'ramda'
+import { Link } from '@reach/router'
+import withProps from 'recompose/withProps'
+import { typography } from './styles'
+import { ColoredLink } from './Text'
+import { Flex } from './Container'
+import type { Node, ComponentType } from 'react'
 
-const Button = styled(Text.withComponent('button'))(
+const StyledEmptyButton = styled(Flex.withComponent('button'))(
   {
-    height: 48,
-    borderRadius: 4,
+    display: 'flex',
+    background: 'transparent',
+    cursor: 'pointer',
     border: 'none',
-    padding: '0 24px',
-    fontWeight: 'bold',
     outline: 'none',
-    transition: 'background-color .2s ease',
+    opacity: 1,
+    transition: 'opacity .2s ease',
   },
-  props => {
-    const {
-      backgroundColor = props.theme.colors.button,
-      color: textColor = props.theme.colors.buttonText,
-    } = color(props)
+  ({ hover, theme: { colors } }) =>
+    hover && {
+      ':hover': {
+        backgroundColor: hover ? path(hover.split('.'), colors) : hover,
+      },
+      transition: 'background-color .2s ease',
+    },
+  ({ disabled }) => disabled && { opacity: 0.6, cursor: 'not-allowed' },
+)
+const Base = styled(StyledEmptyButton)(
+  typography,
+  ({ colortype, theme: { colors } }) => {
+    const borderStyle = {
+      ':before': {
+        content: '" "',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        borderRadius: 'inherit',
+        borderWidth: 2,
+        borderStyle: 'solid',
+        borderColor: colors[`${colortype}-border`] || 'transparent',
+        ':hover': {
+          borderColor: colors[`${colortype}-border:hover`],
+        },
+      },
+    }
+    const background = colors[`${colortype}-bg`]
+    if (/linear-gradient/.test(background)) {
+      return {
+        background,
+        backgroundPosition: 'right',
+        backgroundSize: '200%',
+        color: colors[`${colortype}-color`],
+        transition: 'background-position .2s ease, opacity .2s ease',
+        ...borderStyle,
+        ':hover': {
+          backgroundPosition: 'left',
+        },
+      }
+    }
     return {
-      backgroundColor: props.disabled
-        ? props.theme.colors.disabled
-        : backgroundColor,
-      color: textColor,
-      '&:hover': { backgroundColor: tint(0.3, backgroundColor) },
-      '&:active': { backgroundColor: shade(0.3, backgroundColor) },
+      color: colors[`${colortype}-color`],
+      background: colors[`${colortype}-bg`],
+      transition:
+        'color .2s ease, background-color .2s ease, border-color .2s ease, opacity .2s ease',
+      ...borderStyle,
+      ':hover': {
+        color: colors[`${colortype}-color:hover`],
+        background: colors[`${colortype}-bg:hover`],
+      },
+    }
+  },
+  {
+    border: 'none',
+    position: 'relative',
+    outline: 'none',
+    textDecoration: 'none',
+  },
+)
+
+const StyledButton = styled(Base)(
+  ({ size }) => {
+    if (size === 'circle')
+      return {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        padding: 0,
+        flexShrink: 0,
+      }
+    if (size === 'large')
+      return {
+        height: 48,
+        borderRadius: 24,
+        fontSize: 17,
+        padding: '0 32px',
+      }
+
+    if (size === 'small')
+      return {
+        height: 32,
+        borderRadius: 16,
+        fontSize: 14,
+        padding: '0 18px',
+      }
+    return {
+      height: 40,
+      borderRadius: 20,
+      fontSize: 15,
+      padding: '0 24px',
+    }
+  },
+  {
+    fontFamily:
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    fontWeight: '600',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+)
+
+const withButtonProps = withProps(
+  ({
+    to,
+    colortype: c = 'primary',
+    underConstruction,
+    disabled,
+    href,
+    innerRef,
+    ...props
+  }) => {
+    const colortype = `button-${c}`
+
+    const underConstructionProps = underConstruction
+      ? {
+          onClick: () =>
+            alert('This feature has not been implemented just yet!'),
+        }
+      : {}
+    return {
+      colortype,
+      as: to ? Link : href ? 'a' : undefined,
+      ref: innerRef,
+      ...props,
+      ...underConstructionProps,
     }
   },
 )
+const Button: ComponentType<{
+  colortype?: 'primary' | 'secondary' | 'secondary-dark' | 'accent' | 'success',
+  size?: 'circle' | 'large' | 'medium' | 'small',
+  to?: string,
+  href?: string,
+  underConstruction?: boolean,
+  onClick?: Event => any,
+  children: Node,
+}> = withButtonProps(Flex.withComponent(StyledButton))
+const EmptyButton = withButtonProps(StyledEmptyButton)
+const ButtonLink = styled(ColoredLink.withComponent(EmptyButton))({
+  backgroundColor: 'transparent',
+  paddingLeft: 0,
+  paddingRight: 0,
+})
 
-const ButtonWithOutline = (props: { onClick?: () => any }) => (
-  <FocusOutline inline borderRadius={4}>
-    <Button {...props} />
-  </FocusOutline>
-)
-
-export { ButtonWithOutline as Button }
+export { Base, Button, EmptyButton, StyledButton, ButtonLink }
