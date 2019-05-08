@@ -29,7 +29,7 @@
 
     <groupId>com.ixortalk</groupId>
     <artifactId>ixortalk-user-registration-ui</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8-SNAPSHOT</version>
 
     <name>ixortalk-user-registration-ui</name>
     <description>IxorTalk User Registration UI</description>
@@ -72,7 +72,7 @@
         <connection>scm:git:git@github.com:IxorTalk/ixortalk-user-registration-ui.git</connection>
         <developerConnection>scm:git:git@github.com:IxorTalk/ixortalk-user-registration-ui.git</developerConnection>
         <url>https://github.com/IxorTalk/ixortalk-user-registration-ui/tree/master</url>
-        <tag>ixortalk-user-registration-ui-0.0.7</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
