@@ -48,7 +48,7 @@ const forgotPassword = async ({ login }: FormValues, form) => {
       'Content-Type': 'application/json',
     },
     method: 'POST',
-    body: login,
+    body: login.toLowerCase(),
   })
   form.setStatus(status)
   form.setSubmitting(false)
