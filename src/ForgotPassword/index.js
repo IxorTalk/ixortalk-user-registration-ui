@@ -104,7 +104,7 @@ export const ForgotPassword = (props: Props) => {
             </>
           )
         return (
-          <Grid as={Form} width={480} py={3} px={4}>
+          <Grid as={Form} maxWidth={480} py={3} px={4}>
             <Col my={3}>
               <Heading tier="3">Forgot Password</Heading>
             </Col>
