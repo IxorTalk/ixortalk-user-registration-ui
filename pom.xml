@@ -29,7 +29,7 @@
 
     <groupId>com.ixortalk</groupId>
     <artifactId>ixortalk-user-registration-ui</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.8-SNAPSHOT</version>
 
     <name>ixortalk-user-registration-ui</name>
     <description>IxorTalk User Registration UI</description>
