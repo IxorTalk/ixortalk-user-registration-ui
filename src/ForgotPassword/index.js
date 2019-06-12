@@ -43,13 +43,16 @@ type FormValues = {
 }
 const forgotPassword = async ({ login }: FormValues, form) => {
   form.setStatus(null)
-  const { status } = await fetch('/uaa/api/account/reset_password/init', {
-    headers: {
-      'Content-Type': 'application/json',
+  const { status } = await fetch(
+    '/uaa-thirdparty/api/account/reset_password/init',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: login.toLowerCase(),
     },
-    method: 'POST',
-    body: login.toLowerCase(),
-  })
+  )
   form.setStatus(status)
   form.setSubmitting(false)
 }

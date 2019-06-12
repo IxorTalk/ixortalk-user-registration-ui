@@ -42,7 +42,7 @@ export const Activation = (props: Props) => {
   const [error, setError] = React.useState(false)
   const activate = async () => {
     const { key } = parse(split('?', window.location.href)[1])
-    const resp = await fetch(`/uaa/api/activate?key=${key}`)
+    const resp = await fetch(`/uaa-thirdparty/api/activate?key=${key}`)
     if (!resp.ok) setError(true)
     setLoading(false)
   }

@@ -49,13 +49,16 @@ const resetPassword = async (
   form,
 ) => {
   form.setStatus(null)
-  const { status } = await fetch('/uaa/api/account/reset_password/finish', {
-    headers: {
-      'Content-Type': 'application/json',
+  const { status } = await fetch(
+    '/uaa-thirdparty/api/account/reset_password/finish',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ newPassword, key }),
     },
-    method: 'POST',
-    body: JSON.stringify({ newPassword, key }),
-  })
+  )
   form.setStatus(status)
   form.setSubmitting(false)
 }
